@@ -12,7 +12,7 @@ if proceed!="No":
     else:
         print("Okie dokie!")
         title=video.title
-        video=video.streams.get_highest_resolution()
+        video=video.streams.filter(only_audio=True).first()
         downloaded_vid = video.download(output_path='.')
         file_name, extension = os.path.splitext(downloaded_vid)
         new_file = file_name + '.mp3'
